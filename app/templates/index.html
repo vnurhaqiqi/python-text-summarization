@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-outline-success">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+                    <button class="btn btn-light d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item">
+                              <!-- <p id="jam" style="color: #347B98; padding-top: 10px;"></p> -->
+                              <h5 style="color: #347B98;"><strong>Peringkas Teks Otomatis Jurnal Bahasa Indonesia</strong></h5>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+          <div class="col-md-6">
+            <form action="{{ url_for('proses') }}" method="POST" enctype="multipart/form-data">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Judul Jurnal</span>
+                </div>
+                <input type="text" name="title" class="form-control">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">File Jurnal</span>
+                </div>
+                <input type="file" name="file" class="form-control">
+              </div>
+              <strong style="color: #092834;">Jumlah Ringkasan :</strong>
+              <div class="form-check-inline">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optradio" value="3"><strong style="color: #092834;">3 Kalimat</strong>
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optradio" value="5"><strong style="color: #092834;">5 Kalimat</strong>
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optradio" value="7"><strong style="color: #092834;">7 Kalimat</strong>
+                </label>
+              </div>
+              <div class="form-check-inline disabled">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optradio" value="10"><strong style="color: #092834;">10 Kalimat</strong>
+                </label>
+              </div><br><br>              
+              <div id="myProgress">
+                <div id="myBar">0%</div>
+              </div><br>         
+              <button type="submit" class="btn btn-info btn-sm" onclick="move()"><i class="fa fa-fw fa-upload"></i> Upload</button>&nbsp;
+              <button type="reset" class="btn btn-danger btn-sm"><i class="fas fa-times-circle"></i> Batal</button>
+            </form>          
+          </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pembobotan Kata</title>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style2.css') }}">
+</head>
+<body>
+	<h2>Hasil Pembobotan Kata</h2>
+	<div class=page>
+	  {% for table in tables_weighting %}
+	    {{ table|safe }}
+	  {% endfor %}
+	</div>
+</body>
+</html>
+

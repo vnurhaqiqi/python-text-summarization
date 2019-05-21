@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Non-Negative Matrix Factorization</title>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style2.css') }}">
+</head>
+<body>
+	<h2>Hasil Non-Negative Matrix Factorization</h2>
+	<div class=page>
+	  {% for table in tables_nmf %}
+	    {{ table|safe }}
+	  {% endfor %}
+	</div>
+</body>
+</html>
+

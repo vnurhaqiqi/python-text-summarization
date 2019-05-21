@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-outline-success">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+                    <button class="btn btn-light d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item">
+                              <h5 style="color: #347B98;"><strong>Peringkas Teks Otomatis Jurnal Bahasa Indonesia</strong></h5>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+          <div class="col-md-6">
+            <div class="card">
+                <div class="card-header" style="color: #B2D732; background: #092834;"><strong>Daftar Kata Dasar</strong></div>
+                <div class="card-body">
+                    <div class="table table-bordered">
+                        <table class="table table-bordered">
+                            <thead class="thead-secondary">
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Kata Dasar</th>
+                                </tr>
+                            </thead>
+                            {% for katadasar in kataDasar %}
+                            <tbody>
+                                <tr>
+                                    <td>{{ katadasar[0]}}</td>
+                                    <td>{{ katadasar[1]}}</td>
+                                </tr>
+                            </tbody>
+                            {% endfor %}
+                        </table>
+                    </div>               
+                </div>
+            </div>         
+          </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-outline-success">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+                    <button class="btn btn-light d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item">
+                              <h5 style="color: #347B98;"><strong>Peringkas Teks Otomatis Jurnal Bahasa Indonesia</strong></h5>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+			<div class="row">
+	          <div class="col-md-8">
+	            <div class="input-group mb-3">
+	                <div class="input-group-prepend">
+	                  <span class="input-group-text" style="color: #B2D732; background: #092834;"><strong>Judul Jurnal</strong></span>
+	                </div>
+	                <input type="text" name="title" class="form-control" value="{{ journal }}" disabled>
+	            </div>
+	            <div class="input-group mb-3">
+	                <div class="input-group-prepend">
+	                  <span class="input-group-text" style="color: #B2D732; background: #092834;"><strong>Kata Kunci</strong></span>
+	                </div>
+	                <input type="text" name="title" class="form-control" value="{{ top_word }}" disabled>
+	            </div>   
+
+				<strong style="color: #092834;">Hasil Ringkasan : </strong><br>
+				{% for sum in summary %}
+	            <ul class="list-group text-justify">
+	              <li class="list-group-item">{{ sum }}</li>
+	            </ul>
+				{% endfor %}
+	          </div>
+
+	          <div class="col-md-4">
+	          	
+	            <div class="input-group mb-3">
+	                <div class="input-group-prepend">
+	                  <span class="input-group-text" style="color: #B2D732; background: #092834;"><strong>Jarak Frobenius Norm</strong></span>
+	                </div>
+	                <input type="text" name="title" class="form-control" value="{{ frobenius }}" disabled>
+	            </div>
+	            <div class="input-group mb-3">
+	            	<div class="input-group-prepend">
+	                  <span class="input-group-text" style="color: #B2D732; background: #092834;"><strong>Jumlah Iterasi</strong></span>
+	                </div>
+	                <input type="text" name="title" class="form-control" value="{{ iteration }}" disabled>
+	            </div>
+
+				<div class="card">
+				  <div class="card-header" style="color: #B2D732; background: #092834;"><strong>Jumlah Kalimat</strong></div>
+				  <div class="card-body text-center">
+				  	<h2><strong>{{ n }}</strong></h2>
+				  	<strong>Kalimat</strong>
+				  </div>
+				</div><br>
+
+				<div class="card">
+				  <div class="card-header" style="color: #B2D732; background: #092834;"><strong>Jumlah Kata</strong></div>
+				  <div class="card-body text-center">
+				  	<h2><strong>{{ m }}</strong></h2>
+				  	<strong>Kata</strong>
+				  </div>
+				</div><br>
+
+				<a class="btn btn-primary btn-sm" href="/tables_preprocessing" target="new"><i class="fas fa-arrow-alt-circle-right"></i> Preprocessing</a>
+				<a class="btn btn-primary btn-sm" href="/tables_weighting" target="new"><i class="fas fa-arrow-alt-circle-right"></i> Pembobotan Kata</a>
+				<a class="btn btn-primary btn-sm" href="/tables_nmf" target="new"><i class="fas fa-arrow-alt-circle-right"></i> NMF</a>
+
+	          </div>
+
+			</div>
+
+        </div>
+
+    </div>
+{% endblock %}
